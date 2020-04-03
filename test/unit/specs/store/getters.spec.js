@@ -15,6 +15,7 @@ describe('store', () => {
           biobank_quality: {filters: [], biobanks: []},
           type: {filters: []},
           dataType: {filters: []},
+          covid19: {filters: []},
           showCountryFacet: true
         }
         expect(getters.rsql(state)).to.equal('country=in=(AT,BE);(name=q=Cell&Co,id=q=Cell&Co,acronym=q=Cell&Co,biobank.name=q=Cell&Co,biobank.id=q=Cell&Co,biobank.acronym=q=Cell&Co)')
@@ -30,6 +31,7 @@ describe('store', () => {
           biobank_quality: {filters: [], biobanks: []},
           type: {filters: []},
           dataType: {filters: []},
+          covid19: {filters: []},
           showCountryFacet: true
         }
         expect(getters.rsql(state)).to.equal('')
@@ -45,6 +47,7 @@ describe('store', () => {
           biobank_quality: {filters: [], biobanks: []},
           type: {filters: []},
           dataType: {filters: []},
+          covid19: {filters: []},
           showCountryFacet: false,
           preConfiguredCountyCode: 'BE'
         }
@@ -275,6 +278,10 @@ describe('store', () => {
               {id: 'CASE_CONTROL', label: 'Case control'}
             ]
           },
+          covid19: {
+            filters: [],
+            options: []
+          },
           dataType: {
             filters: ['BIOLOGICAL_SAMPLES', 'GENEALOGICAL_RECORDS'],
             options: [
@@ -346,6 +353,10 @@ describe('store', () => {
             options: []
           },
           type: {
+            filters: [],
+            options: []
+          },
+          covid19: {
             filters: [],
             options: []
           },

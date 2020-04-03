@@ -27,6 +27,9 @@ const getInitialState = () => {
     type: {
       filters: []
     },
+    covid19: {
+      filters: []
+    },
     dataType: {
       filters: []
     },
