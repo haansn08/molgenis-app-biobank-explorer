@@ -101,41 +101,41 @@ export default {
     ...mapActions({
       getCollectionReport: GET_COLLECTION_REPORT
     }),
-    back() {
+    back () {
       this.$router.go(-1)
     }
   },
   computed: {
     ...mapState({ collection: 'collectionReport', isLoading: 'isLoading' }),
-    mainContent() {
+    mainContent () {
       return this.collection ? mapDetailsTableContent(this.collection) : {}
     },
-    rightCardContent() {
+    rightCardContent () {
       return this.collection
         ? mapCollectionDetailsListContent(this.collection)
         : {}
     },
-    subCollections() {
+    subCollections () {
       return this.collection &&
         this.collection.sub_collections &&
         this.collection.sub_collections.length
         ? mapCollectionsData(this.collection.sub_collections)
         : []
     },
-    collectionId() {
+    collectionId () {
       const splittedUrl = this.$route.fullPath.split('/')
       return splittedUrl[splittedUrl.length - 1]
     }
   },
   // needed because if we route back the component is not destroyed but its props are updated for other collection
   watch: {
-    $route(to, from) {
+    $route (to, from) {
       if (from.name.indexOf('collection') >= 0) {
         location.reload()
       }
     }
   },
-  mounted() {
+  mounted () {
     this.getCollectionReport([this.collectionId])
   }
 }
