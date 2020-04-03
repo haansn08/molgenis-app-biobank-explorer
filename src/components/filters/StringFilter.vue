@@ -10,7 +10,8 @@
           <input type="text" class="form-control"
                  :placeholder="placeholder"
                  :aria-label="label"
-                 v-model.lazy="model">
+                 v-model.lazy="model"
+                 @keyup.enter="$emit('change')">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary"
                     type="button"
@@ -20,7 +21,6 @@
         <small v-if="description" class="form-text text-muted">{{description}}</small>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
